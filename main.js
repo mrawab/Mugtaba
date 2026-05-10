@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- QR Code Generation (Reliable Fallback) ---
   const generateQR = () => {
     const qrContainer = document.querySelector(".qr-container");
-    const currentUrl = window.location.href;
+    const currentUrl = "https://mugtabandetharweeding.netlify.app/invite_card.jpg";
 
     // Use an Image API as the primary method because it's much more reliable
     const qrImg = document.createElement("img");
