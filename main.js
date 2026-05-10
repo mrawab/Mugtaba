@@ -309,11 +309,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Attempt to autoplay immediately on load
-  setTimeout(() => {
-    startMusic();
-  }, 500);
+  // START MUSIC ON FIRST TAP
+  // Mobile browsers strictly block audio until the user touches the screen.
+  // This seamlessly starts the music on their very first tap/scroll anywhere!
+  const unlockAudio = () => {
+    if (!musicPlaying && !userInteracted) {
+      userInteracted = true;
+      startMusic();
+    }
+    // Remove listeners after first interaction
+    document.removeEventListener("touchstart", unlockAudio);
+    document.removeEventListener("click", unlockAudio);
+    document.removeEventListener("scroll", unlockAudio);
+  };
+
+  document.addEventListener("touchstart", unlockAudio, { once: true, passive: true });
+  document.addEventListener("click", unlockAudio, { once: true, passive: true });
+  document.addEventListener("scroll", unlockAudio, { once: true, passive: true });
 
 });
-
-
