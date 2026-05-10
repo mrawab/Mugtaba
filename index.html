@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوة زفاف مجتبى وإيثار | Mugtaba & Ethar Invitation</title>
+    <meta name="description"
+        content="انضموا إلينا للاحتفال بزفاف مجتبى وإيثار. Join us to celebrate the wedding of Mugtaba and Ethar.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Reem+Kufi:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Particle Overlay (clips flower/spark effects) -->
+    <div id="particle-overlay"></div>
+
+    <div id="app">
+        <!-- Sparks Effect -->
+        <div class="sparks-container" id="sparks"></div>
+
+        <!-- Audio Player -->
+        <div class="audio-control" id="audio-toggle">
+            <i class="fa-solid fa-music"></i>
+            <audio id="bg-music" loop style="display:none"></audio>
+            <div style="position:fixed;top:0;left:0;width:0;height:0;overflow:hidden;pointer-events:none;">
+                <iframe id="yt-music-player" style="width:1px;height:1px;opacity:0;pointer-events:none;" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" title="John Legend - All of Me" width="0"
+                    height="0"
+                    src="https://www.youtube.com/embed/Qe2G6Vs1V_Q?autoplay=1&amp;controls=0&amp;loop=1&amp;playlist=Qe2G6Vs1V_Q&amp;start=45&amp;rel=0&amp;iv_load_policy=3&amp;enablejsapi=1"
+                    data-gtm-yt-inspected-10="true"></iframe>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="verse">
+                <p>"بسم الله الرحمن الرحيم"</p>
+            </div>
+            <div class="verse" style="margin-top: 10px;">
+                <p>"وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ
+                    بَيْنَكُم مَّوَدَّةً وَرَحْمَةً"</p>
+            </div>
+
+            <div class="families">
+                <div class="family-group">
+                    <p>آل محمد عوض يوسف</p>
+                    <p>آل كباشي محمد علي حميدة</p>
+                </div>
+                <div class="family-divider">&</div>
+                <div class="family-group">
+                    <p>آل بابكر أحمد بابكر</p>
+                    <p>آل مصطفى إبراهيم إسماعيل</p>
+                </div>
+            </div>
+
+            <div class="invitation-text">
+                <p>يتشرفون بدعوتكم لحضور حفل زفاف نجليهما</p>
+            </div>
+
+            <h1 class="names">
+                <span class="name">مجتبى</span>
+                <span class="ampersand">&</span>
+                <span class="name">إيثار</span>
+            </h1>
+
+            <div class="date-hero">
+                <p class="ar">الجمعة ٢٩ مايو ٢٠٢٦</p>
+                <p class="en">Friday, May 29, 2026</p>
+            </div>
+        </header>
+
+        <!-- Countdown Section -->
+        <section class="countdown-section">
+            <h2 class="section-title">The Countdown</h2>
+            <div id="countdown" class="countdown-grid">
+                <div class="count-item">
+                    <span id="days">00</span>
+                    <label>Days</label>
+                </div>
+                <div class="count-item">
+                    <span id="hours">00</span>
+                    <label>Hours</label>
+                </div>
+                <div class="count-item">
+                    <span id="minutes">00</span>
+                    <label>Minutes</label>
+                </div>
+                <div class="count-item">
+                    <span id="seconds">00</span>
+                    <label>Seconds</label>
+                </div>
+            </div>
+            <p class="countdown-message" style="direction: ltr;">In our special day we can't wait to celebrate this
+                incredible moments with you!
+            </p>
+        </section>
+
+        <!-- Venue Section -->
+        <section class="venue-section">
+            <h2 class="section-title">Location & Venue</h2>
+            <div class="venue-card">
+                <div class="venue-info">
+                    <h3>القاعة الماسية - دار المشاة</h3>
+                    <p>شارع إسماعيل الفنجري</p>
+                    <p class="en" style="direction: ltr;">Diamond Hall - Dar Al-Musha</p>
+                    <p class="en sub" style="direction: ltr;">Ismail El-Fangary St.</p>
+                </div>
+                <div class="map-placeholder" id="venue-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.980687663242!2d31.2858!3d30.0761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583f7076e0339d%3A0x8673a5538d581781!2sInfantry%20House!5e0!3m2!1sen!2seg!4v1715300000000!5m2!1sen!2seg"
+                        width="100%" height="100%" style="border:0;" allowfullscreen=""
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="venue-actions">
+                    <a href="https://maps.google.com/?q=Diamond+Hall+Dar+Al-Musha" target="_blank"
+                        class="btn btn-outline">Get Directions</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section class="schedule-section">
+            <h2 class="section-title">Schedule of Events</h2>
+            <div class="schedule-grid">
+                <div class="schedule-item">
+                    <span class="time">4:00 PM</span>
+                    <span class="event">Nikah Ceremony</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="time">8:00 PM</span>
+                    <span class="event">Wedding Reception</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- QR & Share Section -->
+        <section class="share-section">
+            <div class="qr-container">
+                <canvas id="qrcode"></canvas>
+                <p>Scan to view invitation</p>
+            </div>
+            <div class="share-actions">
+                <button id="copy-link" class="btn btn-primary">Copy Link & Share</button>
+                <button id="rsvp-btn" class="btn btn-gold pulse">RSVP Now</button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>With love ❤️</p>
+            <p class="footer-names">Mugtaba & Ethar</p>
+            <!-- <div class="floral-decor-bottom"></div> -->
+            <div class="rings-wrapper">
+                <img src="wedding-rings-diamond-svgrepo-com.svg" alt="Wedding Rings">
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="main.js" defer></script>
+</body>
+
+</html>
