@@ -277,47 +277,59 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- YouTube Audio Toggle (no API - simple src toggle) ---
+  // --- YouTube Audio Toggle (Using API for Mobile Compatibility) ---
   const audioToggle = document.getElementById("audio-toggle");
-  const ytFrame = document.getElementById("yt-music-player");
-  const YT_SRC = "https://www.youtube.com/embed/Qe2G6Vs1V_Q?autoplay=1&controls=0&loop=1&playlist=Qe2G6Vs1V_Q&start=45&rel=0&iv_load_policy=3&mute=0";
+  let ytPlayer;
   let musicPlaying = false;
   let userInteracted = false;
 
+  // Initialize YouTube API
+  window.onYouTubeIframeAPIReady = function() {
+    ytPlayer = new YT.Player('yt-music-player', {
+      events: {
+        'onReady': onPlayerReady
+      }
+    });
+  };
+
+  function onPlayerReady(event) {
+    // If user interacted before API loaded, play immediately
+    if (userInteracted && !musicPlaying) {
+      startMusic();
+    }
+  }
+
   const startMusic = () => {
-    if (!musicPlaying && ytFrame) {
-      ytFrame.src = YT_SRC;
+    if (!musicPlaying && ytPlayer && ytPlayer.playVideo) {
+      ytPlayer.playVideo();
       if (audioToggle) audioToggle.classList.add("playing");
       musicPlaying = true;
     }
   };
 
-  if (audioToggle && ytFrame) {
-    // Start with src empty so no autoplay error in console
-    ytFrame.src = "";
-
+  if (audioToggle) {
     audioToggle.addEventListener("click", (e) => {
-      e.stopPropagation(); // prevent global click from firing
+      e.stopPropagation();
+      userInteracted = true; // explicitly allow
+      if (!ytPlayer || !ytPlayer.playVideo) return;
+      
       musicPlaying = !musicPlaying;
       if (musicPlaying) {
-        ytFrame.src = YT_SRC;
+        ytPlayer.playVideo();
         audioToggle.classList.add("playing");
       } else {
-        ytFrame.src = "";
+        ytPlayer.pauseVideo();
         audioToggle.classList.remove("playing");
       }
     });
   }
 
   // START MUSIC ON FIRST TAP
-  // Mobile browsers strictly block audio until the user touches the screen.
-  // This seamlessly starts the music on their very first tap/scroll anywhere!
   const unlockAudio = () => {
     if (!musicPlaying && !userInteracted) {
       userInteracted = true;
       startMusic();
     }
-    // Remove listeners after first interaction
     document.removeEventListener("touchstart", unlockAudio);
     document.removeEventListener("click", unlockAudio);
     document.removeEventListener("scroll", unlockAudio);
